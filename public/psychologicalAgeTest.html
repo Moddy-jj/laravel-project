@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>心里年龄测试</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<style type="text/css">
+			body {
+				background: #DDDDDD;
+			}
+			
+			.wrap {
+				position: relative;
+			}
+			
+			.wrap_box {
+				min-height: 700px;
+			}
+			
+			.p_top {
+				text-align: center;
+				margin: 50px 0;
+				color: #555555;
+				font-family: 'Quattrocento Sans', sans-serif;
+				font-size: 2em;
+				font-weight: normal;
+				letter-spacing: -1px;
+				text-shadow: 0 1px 0 #ffffff;
+				text-transform: uppercase;
+			}
+			
+			.p_title {
+				text-align: center;
+				margin: 50px 0;
+				color: #555555;
+				font-family: 'Quattrocento Sans', sans-serif;
+				font-size: 20px;
+				font-weight: normal;
+				letter-spacing: -1px;
+				text-shadow: 0 1px 0 #ffffff;
+				text-transform: uppercase;
+			}
+			
+			.start_btn {
+				width: 100px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				border: 1px solid #202020;
+				border-radius: 5px;
+				margin: auto;
+				cursor: pointer;
+			}
+			
+			.start_btn:hover {
+				background: #008B8B;
+				border: 1px solid #008B8B;
+			}
+			
+			#content_box {
+				width: 100%;
+				height: 500px;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				align-content: center;
+				display: none;
+			}
+			
+			#content_box li {
+				width: 80%;
+				margin: 0 auto;
+				height: 80px;
+				line-height: 80px;
+				cursor: pointer;
+			}
+			
+			#content_box li:hover {
+				background: #008B8B;
+			}
+			
+			#content_box li span:nth-child(1) {
+				display: inline-block;
+				width: 10%;
+				text-align: right;
+			}
+			
+			#content_box li span:nth-child(2) {
+				display: inline-block;
+				width: 90%;
+				text-align: left;
+			}
+			
+			.test_number {
+				width: 90%;
+				text-align: right;
+				margin-bottom: 50px;
+				display: none;
+			}
+			
+			.result_box {
+				display: none;
+			}
+			
+			.result_box p {
+				margin: 20px 0;
+				font-size: 20px;
+			}
+			
+			.result_title {
+				font-size: 26px;
+			}
+			
+			.age_test_img {
+				width: 800px;
+				display: block;
+				margin: 0 auto;
+				margin-bottom: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap wrap_box">
+			<div class="p_top">How old is your psychological age</div>
+			<img class="age_test_img" src="images/age_test.jpeg" />
+			<div class="start_btn" onclick="start_test()">Start Test</div>
+			<ul id="content_box">
+				<div class="p_title"></div>
+				<div class="test_number">
+					<span id="current_number">1</span>&nbsp;/&nbsp;<span id="sum_number">11</span>
+				</div>
+				<li lang="1"><span>A:</span><span id="a"></span></li>
+				<li lang="2"><span>B:</span><span id="b"></span></li>
+				<li lang="3"><span>C:</span><span id="c"></span></li>
+				<li lang="4"><span>D:</span><span id="d"></span></li>
+			</ul>
+			<div class="result_box">
+				<p class="result_title">Test Result</p>
+				<p id="result"></p>
+				<p id="proposal"></p>
+			</div>
+		</div>
+		<script src="js/jquery-1.9.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var data_list = [
+
+				{
+					title: "1. You are suddenly dismissed by your boss, your other half is unemployed, and you are taking care of your children at home. Your savings are only enough for 2 days. What will you do?",
+					a: "Spend the money before you think about it",
+					b: "Ask your parents for help",
+					c: "Ask a friend for help",
+					d: "Make money as soon as possible through your own efforts"
+				}, {
+					title: "2. You are suddenly promoted by the leader to manage a team, but a colleague who has a bad relationship with you is jealous of you and is against you everywhere. What will you do?",
+					a: "Embarrass the other party and let them retreat",
+					b: "Make it public and ask for an apology",
+					c: "Tell the other party clearly that they need to cooperate actively, otherwise they will be dismissed",
+					d: "I will communicate with each other in private"
+				}, {
+					title: "3. If you are the father / mother of two children, and the child fights with the child in the kindergarten, your child is injured, and the other party's parents also ask you to apologize, what will you do?",
+					a: "Abusing the other's parents",
+					b: "Ask for an apology to your child",
+					c: "Get to know the facts quickly before you respond",
+					d: "Go directly to the kindergarten teacher for help"
+				}, {
+					title: "4. You are chasing the finale of a TV play tonight, and your partner asks you to accompany him to a classmate party in the evening. What will you do?",
+					a: "Tell the other party that they can't go after the play",
+					b: "Ask the other party not to attend the party to watch the play with you",
+					c: "Let the other party go first, and then go after watching the TV play",
+					d: "Accompany your partner to the event on time"
+				}, {
+					title: "5. In a friend's party, the other half insults you in public after getting drunk and reveals some of your private shortcomings. What will you do?",
+					a: "Angry, reckless and abusive",
+					b: "Think the other party is intentional, will be angry to leave",
+					c: "Ask for an apology on the spot",
+					d: "Take it home and deal with it"
+				}, {
+					title: "6. You have a hot pot shop with your friends, and the business is very good. But your friends often ask you for a meal and don't give you money. If your partner is not happy, what will you do?",
+					a: "Ask the other party to adapt to all this",
+					b: "When a friend rubs a meal, he will ask his partner to collect money for you",
+					c: "Tell a friend that you have to pay for dinner later",
+					d: "Pay for your friends"
+				}, {
+					title: "7. After you get married, you live in a high-end apartment, and one of your distant relatives often comes to your house to save money, and doesn't give any fee. What do you think?",
+					a: "Tell the other person directly that you don't welcome him / her",
+					b: "Gently suggest that the other party is not appropriate to do so",
+					c: "Back to find their parents or brothers to explain the situation, so that in the future less disturb themselves",
+					d: "Think the other party is not easy and easy to accept"
+				}, {
+					title: "8. If you have 10 million savings and your cousin owes 2 million to others for gambling, and they ask you to rescue her, what will you do?",
+					a: "I don't want to borrow her if I think there is something wrong with her character",
+					b: "Discuss with your partner / parents before deciding",
+					c: "Half a million dollars to help each other",
+					d: "Give 2 million to each other and ask them not to gamble any more"
+				}, {
+					title: "9. On the eve of Valentine's day, when you see your partner acting intimately with a leader of your company and entering the hotel together, what's your first reaction?",
+					a: "Think the other side betrays you, will come forward to abuse the other side",
+					b: "Choose to believe and ignore",
+					c: "Ask each other the truth directly",
+					d: "Find out the situation quickly and don't make a fool of each other"
+				}, {
+					title: "10. Your neighbor's house is being renovated and your child is going to take the final exam. What will you do?",
+					a: "Ask the other party to stop decoration directly",
+					b: "Ignore children",
+					c: "Ask the other party to cooperate and avoid the children's study time",
+					d: "Let children go to their parents or friends to study"
+				}, {
+					title: "11. What would you do if you found that a piece of jewelry you loved was worn by a friend you didn't have a good relationship with?",
+					a: "Ask the other person to take it off face to face",
+					b: "Abuse each other in public",
+					c: "Ask the other party to return the jewelry to you directly",
+					d: "Ask each other the truth in private"
+				}
+			];
+			var value = 0;
+			var index = 0;
+
+			function show_result() {
+				var result = "";
+				var proposal = "";
+				if(value >= 11 && value <= 18) {
+					result = "Your mental age is 18-23 years old. You are optimistic, aggressive, and don't hide your emotions. When you encounter something unpleasant in your work, you will directly write your emotions on your face. In communication, you are extremely inexperienced. In some important occasions, you are easy to make a fool of yourself or make others feel unreasonable because of your nervousness or lack of thinking, You'll stop your career. In love, you are used to depending on each other. Once the other party can't satisfy some of your childish behavior, you will punish the other party by provoking the other party and make the other party suffer."
+					proposal = "Suggestion: learn to make yourself more mature to deal with everything, you will be more comfortable with life.";
+				} else if(value >= 19 && value <= 26) {
+					result = "Your psychological age is 25-30 years old. You are a person who loves life, is sincere and doesn't care about gain and loss. In work, you will infect others with passion, quickly integrate into the team, and give full play to your excellent creativity. However, sometimes you are likely to be hostile to each other because you are not recognized by others, and you are likely to blame the noble person and hinder your career. In love, you pursue delicate and high-quality sexual relationship, and require the other party to adapt to your original life and make changes for you, but sometimes it is easy to make emotional pressure due to excessive demands on the other party.";
+					proposal = "Suggestion: provide the ability to distinguish right from wrong, broaden your mind, everything should start from self change, you will live a more balanced life.";
+				} else if(value >= 27 && value <= 34) {
+					result = "Your psychological age is 32-37 years old. You have your own opinions on everything and know how to deal with people tactfully. In the work, you are used to using your past experience to resolve the work crisis, and can use your own contacts to develop your career rapidly, so you can quickly accumulate some wealth, but sometimes you will miss some opportunities to get rich because of being too cautious. In love, you pursue a stable, long-term marriage, and pay more attention to the tacit understanding with the other half, but sometimes it makes the other side feel uncomfortable because of paying too much attention to details.";
+					proposal = "Suggestion: don't be too conservative, be brave to accept new things, and learn to accept each other's everything in love.";
+				} else if(value >= 35 && value <= 44) {
+					result = "Your psychological age is over 40 years old. You are calm, logical, caring and understanding. In work, you have a strong sense of tolerance. You can face things calmly and are willing to guide others. Therefore, you will be respected and respected by your subordinates. Others will cooperate with you because of your sincerity and wisdom, and you can make your career reach the peak. In love, you are used to self-examination, and pay attention to the physical and mental condition of your family. You are willing to pay all but seldom consider for yourself, so you are easy to lose yourself.";
+					proposal = "Suggestions: learn to live for yourself and care more about yourself.";
+				}
+				$('#content_box').css('display', 'none');
+				$('.test_number').css('display', 'none');
+				$('.p_top').css('display', 'block');
+				$('.age_test_img').css('display', 'block');
+				$('.result_box').css('display', 'block');
+				$('#result').html(result);
+				$('#proposal').html(proposal);
+				$('.p_title').html('How old is your psychological age');
+			}
+
+			function test_index() {
+				var vo = data_list[index];
+				$('.p_title').html(vo.title);
+				$('#a').html(vo.a);
+				$('#b').html(vo.b);
+				$('#c').html(vo.c);
+				$('#d').html(vo.d);
+				$('#current_number').html(index + 1);
+			}
+
+			function start_test() {
+				$('.start_btn').css('display', 'none');
+				$('.p_top').css('display', 'none');
+				$('.age_test_img').css('display', 'none');
+				$('#content_box').css('display', 'flex');
+				$('.test_number').css('display', 'block');
+				test_index();
+			}
+
+			$('#content_box li').click(function() {
+				var lang = $(this).attr('lang');
+				lang = parseInt(lang);
+				value += lang;
+				index++;
+				if(index == 11) {
+					show_result();
+				} else {
+					test_index();
+				}
+			});
+		</script>
+	</body>
+
+</html>

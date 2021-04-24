@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>热门活动</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<style type="text/css">
+			body {
+				background: #DDDDDD;
+			}
+			
+			.wrap {
+				position: relative;
+			}
+			
+			.wrap_box {
+				min-height: 700px;
+			}
+			
+			.p_title {
+				text-align: left;
+				margin: 50px 0;
+				color: #555555;
+				font-family: 'Quattrocento Sans', sans-serif;
+				font-size: 2em;
+				font-weight: normal;
+				letter-spacing: -1px;
+				text-shadow: 0 1px 0 #ffffff;
+				text-transform: uppercase;
+			}
+			
+			.ac_ul {
+				width: 100%;
+			}
+			
+			.ac_ul li {
+				width: 100%;
+				height: 200px;
+				margin: 10px 0;
+				border: 1px solid #888;
+				cursor: pointer;
+			}
+			
+			.ac_ul li:hover {
+				background: #55BBBB;
+			}
+			
+			.ac_ul img {
+				height: 160px;
+				margin: 20px 20px;
+				display: block;
+				float: left;
+			}
+			
+			.ac_title {
+				width: 100%;
+				text-align: left;
+				font-size: 20px;
+				height: 50px;
+				line-height: 50px;
+			}
+			
+			.ac_content {
+				height: 130px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.ac_bottom {
+				width: 98%;
+				height: 20px;
+				line-height: 20px;
+				text-align: right;
+			}
+			
+			.pop_box {
+				width: 700px;
+				height: 620px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -300px;
+				margin-top: -400px;
+				background: #FFFFFF;
+				border: 1px solid #999999;
+				border-radius: 10px;
+				display: none;
+			}
+			
+			.close {
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				border: 1px solid #888;
+				border-radius: 5px;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.close:hover {
+				color: #FFFFFF;
+				background: #E1184A;
+				border: 1px solid #E1184A;
+			}
+			
+			.pop_title {
+				width: 680px;
+				font-size: 2em;
+				margin-left: 10px;
+				margin-top: 50px;
+				text-align: center;
+			}
+			
+			#pop_img {
+				width: 250px;
+				height: 200px;
+				margin: 20px auto;
+				margin-left: 225px;
+			}
+			
+			.pop_content {
+				width: 680px;
+				font-size: 20px;
+				margin-left: 10px;
+				margin-top: 30px;
+				text-indent: 40px;
+			}
+			
+			.pop_address,
+			.pop_date {
+				width: 90%;
+				margin-top: 10px;
+				text-align: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="p_title">Hot Activities</div>
+			<ul class="ac_ul">
+				<li>
+					<img src="images/3.jpeg" class="img" />
+					<div class="ac_title">Reading in the library</div>
+					<div class="ac_content">Books are the ladder of human progress and the source of knowledge. Life without books is like a sunny day without sunshine; Wisdom without books is like a bird without wings. As a place to provide knowledge, the library has always been loved by the masses. Reading can make us better grasp knowledge and understand society.</div>
+					<div class="ac_bottom">
+						<span class="ac_address">Address: Biblioteca Comunale Centrale</span>
+						<span class="ac_date">&nbsp;&nbsp;&nbsp;&nbsp;Time: 2021-04-31 10:00</span>
+					</div>
+				</li>
+				<li>
+					<img src="images/6.jpeg" class="img" />
+					<div class="ac_title">Tug of war</div>
+					<div class="ac_content">On the road of life, everyone wants to be a winner, relying on strength, opportunities and the spirit of never giving up. As long as you are full of enthusiasm and never give up, you will win back in the end.</div>
+					<div class="ac_bottom">
+						<span class="ac_address">Address: City Central Stadium</span>
+						<span class="ac_date">&nbsp;&nbsp;&nbsp;&nbsp;Time: 2021-05-01 09:00</span>
+					</div>
+				</li>
+				<li>
+					<img src="images/7.jpeg" class="img" />
+					<div class="ac_title">Swimming contest</div>
+					<div class="ac_content">In order to further implement the spirit of Suizhou "national fitness activities", promote the in-depth development of national fitness activities, enrich the amateur cultural life of the general public, create a healthy and harmonious living environment, and advocate a civilized and upward lifestyle. We are going to hold a swimming competition on the weekend. You are welcome to join us.</div>
+					<div class="ac_bottom">
+						<span class="ac_address">Address: City Central Stadium</span>
+						<span class="ac_date">&nbsp;&nbsp;&nbsp;&nbsp;Time: 2021-05-05 09:00</span>
+					</div>
+				</li>
+				<li>
+					<img src="images/8.jpeg" class="img" />
+					<div class="ac_title">Mountain climbing activities</div>
+					<div class="ac_content">In order to create a healthy and positive working environment, enhance the spiritual and cultural taste of employees, deepen mutual understanding, cultivate mutual love and affection among members, enhance the cohesion of the community team, we are going to hold a collective mountain climbing activity on the weekend, and hope everyone can participate in it.</div>
+					<div class="ac_bottom">
+						<span class="ac_address">Address: Anhui Mount Huangshan</span>
+						<span class="ac_date">&nbsp;&nbsp;&nbsp;&nbsp;Time: 2021-06-01 08:00</span>
+					</div>
+				</li>
+				<li>
+					<img src="images/9.jpeg" class="img" />
+					<div class="ac_title">Outdoor camping activities</div>
+					<div class="ac_content">Outdoor activities are the best way for children to get close to the sun and air and enter the nature. They are also an effective means to exercise their healthy body and optimistic life. Through camping, parents and children can relax and make friends. At the same time, it can help children better improve their communication ability and practical ability, help children learn to communicate, cooperate, care and be grateful, let children understand the value of family and friendship, and increase the intimacy between children and their parents and friends.</div>
+					<div class="ac_bottom">
+						<span class="ac_address">Address: National Central Park</span>
+						<span class="ac_date">&nbsp;&nbsp;&nbsp;&nbsp;Time: 2021-07-15 09:00</span>
+					</div>
+				</li>
+			</ul>
+			<div class="pop_box">
+				<div class="close">Close</div>
+				<p class="pop_title"></p>
+				<img src="" id="pop_img"></img>
+				<p class="pop_content"></p>
+				<div class="pop_address"></div>
+				<div class="pop_date"></div>
+			</div>
+		</div>
+
+		<script src="js/jquery-1.9.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".ac_ul li").click(function() {
+				var src = $(this).children(".img").attr("src");
+				var title = $(this).children(".ac_title").html();
+				var content = $(this).children(".ac_content").html();
+				var ac_address = $(this).children(".ac_bottom").children(".ac_address").html();
+				var ac_date = $(this).children(".ac_bottom").children(".ac_date").html();
+				$("#pop_img").attr("src", src);
+				$(".pop_title").html(title);
+				$(".pop_content").html(content);
+				$(".pop_address").html(ac_address);
+				$(".pop_date").html(ac_date);
+				$(".pop_box").css('display', 'block');
+			});
+			$(".close").click(function() {
+				$(".pop_box").css('display', 'none');
+			});
+		</script>
+	</body>
+
+</html>
