@@ -166,7 +166,7 @@
 				margin-top: 50px;
 				text-indent: 40px;
 			}
-			
+			.manage_personal_activity_btn,
 			.personal_activity_btn,
 			.add_personal_activity_btn {
 				width: 200px;
@@ -180,7 +180,7 @@
 				text-align: center;
 				cursor: pointer;
 			}
-			
+			.manage_personal_activity_btn,
 			.personal_activity_btn:hover,
 			.add_personal_activity_btn:hover {
 				color: #FFFFFF;
@@ -190,6 +190,9 @@
 			
 			.add_personal_activity_btn {
 				right: 630px;
+			}
+			.manage_personal_activity_btn {
+				right:830px;
 			}
 			
 			ul li {
@@ -268,6 +271,8 @@
 
 	<body>
 		<div class="wrap">
+		
+		<a href="{{ URL::asset('44') }}"><div class="manage_personal_activity_btn">Manage your records</a></div>
 			<div class="personal_activity_btn">To Official Activities</div>
 			<div class="add_personal_activity_btn">Add Personal Activities</div>
 			<div class="top_box">

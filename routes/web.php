@@ -33,6 +33,10 @@ Route::get('/33', function () {
 });
 Route::get('/activity', 'ActivityController@index');
 Route::post('/activity', 'ActivityController@store');
+
+Route::get('/44', 'AdminController@users');
+Route::get('/55', 'AdminController@delete');
+
 //Route::get('/44', function () { 
     //return redirect('/login');
     //});
